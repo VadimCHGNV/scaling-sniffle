@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --bg-color: #160f25;         
+    --text-color: #dcd3ee;         
+    --header-color: #e58833;       
+    --link-color: #f7c86f;         
+    --border-color: #e58833;       
+
+    --font-header: 'Press Start 2P', cursive;
+    --font-body: 'VT323', monospace;
+}
+
+/* --- style for all --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1.4rem; 
+    line-height: 1.5;
+    padding: 1rem; 
+}
+
+
+h1, h2, h3 {
+    font-family: var(--font-header);
+    color: var(--header-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--link-color); 
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+
+a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.page-wrapper {
+    max-width: 1000px; 
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    grid-template-areas: 
+        "header header"
+        "main sidebar"
+        "footer footer";
+    gap: 1.5rem;
+}
+
+/* --- background image using id  --- */
+#zen-intro {
+    grid-area: header;
+    background-image: url('images/8-bit-background-00eolrvv0ccowrjf.jpg'); 
+    background-size: cover;
+    background-position: center bottom;
+    padding: 4rem 2rem; 
+    text-align: center;
+    border: 3px solid var(--border-color);
+    text-shadow: 2px 2px 5px #000; /* to make the text a bit more readable */
+}
+
+.main,
+.sidebar .wrapper {
+    border: 3px solid var(--border-color); /* slod border */
+    padding: 1.5rem;
+}
+
+.main {
+    grid-area: main;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.sidebar .wrapper {
+    height: 100%;
+    border-color: var(--link-color); 
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+}
+
+/* making it responsive */
+@media screen and (max-width: 768px) { 
+    body {
+        font-size: 1.2rem;
+    }
+
+    .page-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "main"
+            "sidebar"
+            "footer";
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    #zen-intro {
+        padding: 2rem 1rem;
+    }
+}
